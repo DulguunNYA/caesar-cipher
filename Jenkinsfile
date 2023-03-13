@@ -5,16 +5,19 @@ pipeline {
         stage('Preparing gradlew') {
             steps {
                 sh 'chmod +x gradlew'
+                echo "prepariiiiiing"
             }
         }
         stage('test') {
             steps {
                 sh './gradlew test'
+                echo "testiiiiiiing"
             }
         }
         stage('build') {
             steps {
                 sh './gradlew build'
+                echo "buildiiiiiing"
             }
         }
         //stage('Release') {
