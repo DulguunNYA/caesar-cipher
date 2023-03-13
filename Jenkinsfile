@@ -19,12 +19,10 @@ pipeline {
         }
         stage('Release') {
             steps {
-                sh 'token="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"'
-                sh 'tag=$(git describe --tags)'
-                sh 'message="$(git for-each-ref refs/tags/$tag --format=\'%(contents)\')"'
-                sh 'name=$(echo "$message" | head -n1)'
-                sh 'description=$(echo "$message" | tail -n +3)'
-                sh 'release=$(curl -XPOST -H "Authorization:token $token" --data \'{"tag_name": "$tag", "target_commitish": "main", "name": "$name", "body": "$description", "draft": false, "prerelease": false}\' "https://api.github.com/repos/YoussF/caesar-cipher/releases)"'
+
+              // Run any necessary setup steps, such as configuring credentials
+    	      sh './gradlew clean build publish'
+    	      // Any additional steps, such as tagging the release in Git or sending notifications
             }
         }
         stage('Deploy') {
