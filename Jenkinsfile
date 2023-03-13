@@ -17,14 +17,14 @@ pipeline {
                 sh './gradlew build'
             }
         }
-        stage('Release') {
-            steps {
-
+        //stage('Release') {
+        //    steps {
+        //
               // Run any necessary setup steps, such as configuring credentials
-    	      sh './gradlew clean build publish'
+    	//      sh './gradlew clean build publish'
     	      // Any additional steps, such as tagging the release in Git or sending notifications
-            }
-        }
+        //    }
+        //}
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
