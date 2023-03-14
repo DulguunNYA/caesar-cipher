@@ -12,7 +12,7 @@ pipeline {
 
     }
      environment {
-        CloneRepo = https://github.com/DulguunNYA/caesar-cipher.git
+        CloneRepo = "https://github.com/DulguunNYA/caesar-cipher.git"
         PublishRepo = "DulguunNYA/caesar-cipher"
         PublishRepoUser = "DulguunNYA"
         PublishRepoName = "caesar-cipher"
